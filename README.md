@@ -3,7 +3,7 @@
 
 The IC4J Maven Plugin allows for the installation and uninstallation of ICP canisters from Apache Maven scripts.
 
-To install or uninstall ICP canister add install Maven plugin to your maven script. 
+To install or uninstall an ICP canister, add the install Maven plugin to your Maven script.
 
 run 
 ```mvn install ```
