@@ -25,7 +25,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.ic4j</groupId>
+                <groupId>org.ic4j</groupId>       
                 <artifactId>ic4j-maven-plugin</artifactId>
                 <version>0.7.0</version>
                 <executions>
@@ -56,8 +56,8 @@
 		                    <identity>/Users/roman/.config/dfx/identity/default/identity.pem</identity>
 		                    <canisters>
 		                    	<canister>
-		                    		<canisterId>wzp7w-lyaaa-aaaaa-aaara-cai</canisterId>
-		                    		<delete>false</delete>
+		                    		<canisterId>aax3a-h4aaa-aaaaa-qaahq-cai</canisterId>
+		                    		<delete>true</delete>
 		                    	</canister>                   	
 		                    </canisters>
 		                </configuration>

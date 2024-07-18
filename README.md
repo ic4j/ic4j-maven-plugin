@@ -16,7 +16,7 @@ or ```mvn clean``` to uninstall
        <plugin>
           <groupId>org.ic4j</groupId>
           <artifactId>ic4j-maven-plugin</artifactId>
-          <version>0.7.1</version>
+          <version>0.7.0</version>
           <executions>
                 <execution>
                   <id>install</id>
