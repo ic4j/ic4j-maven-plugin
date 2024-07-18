@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.ic4j</groupId>
 	<artifactId>ic4j-maven-plugin</artifactId>
-	<version>0.6.19.2</version>
+	<version>0.7.1</version>
 	<packaging>maven-plugin</packaging>
 	<description>IC4J Maven Plugin</description>
 	<name>ic4j-maven-plugin Maven Plugin</name>
@@ -18,38 +18,47 @@
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven-plugin-api.version>3.6.2</maven-plugin-api.version>
-		<maven-plugin-annotations.version>3.6.0</maven-plugin-annotations.version>
-		<maven-project.version>2.2.1</maven-project.version>
-		<maven-plugin-plugin.version>3.8.2</maven-plugin-plugin.version>
-		<maven-site-plugin.version>3.8.2</maven-site-plugin.version>
+		<maven-core.version>3.9.7</maven-core.version>
+		<maven-plugin-api.version>3.9.7</maven-plugin-api.version>
+		<maven-plugin-annotations.version>3.13.1</maven-plugin-annotations.version>
+		<maven-plugin-plugin.version>3.13.1</maven-plugin-plugin.version>
+		<maven-site-plugin.version>3.9.7</maven-site-plugin.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.ic4j</groupId>
 			<artifactId>ic4j-candid</artifactId>
-			<version>0.6.19.2</version>
+			<version>0.7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ic4j</groupId>
 			<artifactId>ic4j-agent</artifactId>
-			<version>0.6.19.1</version>
+			<version>0.7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ic4j</groupId>
 			<artifactId>ic4j-management</artifactId>
-			<version>0.6.19.1</version>
+			<version>0.7.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk15on</artifactId>
-			<version>1.70</version>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.10.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcpkix-jdk15on</artifactId>
-			<version>1.70</version>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.14.0</version>
+		</dependency>
+			
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcpkix-jdk18on</artifactId>
+		    <version>1.78.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -62,10 +71,11 @@
 			<version>${maven-plugin-annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-core -->
 		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-project</artifactId>
-			<version>${maven-project.version}</version>
+		    <groupId>org.apache.maven</groupId>
+		    <artifactId>maven-core</artifactId>
+		    <version>${maven-core.version}</version>
 		</dependency>
 	</dependencies>
 
