@@ -62,13 +62,22 @@ public abstract class AbstractIC4JMojo extends AbstractMojo {
 	String network = DEFAULT_NETWORK;
 	
 	
+
+    /**
+     * Optional effective canister ID for management calls. Set this to a canister
+     * on the target subnet when using an isolated replica.
+     */
+    @Parameter(property = "ic4j.effectiveCanisterId")
+    String effectiveCanisterId;
+
 	public ManagementService getManagementService() throws MojoExecutionException, MojoFailureException {
 		try {
 			Security.addProvider(new BouncyCastleProvider());
 			
-			Reader sourceReader = new FileReader(this.identity);
-			
-			Identity identity = Secp256k1Identity.fromPEMFile(sourceReader);
+			Identity identity;
+			try (Reader sourceReader = new FileReader(this.identity)) {
+				identity = Secp256k1Identity.fromPEMFile(sourceReader);
+			}
 	
 	
 			ReplicaTransport transport = ReplicaOkHttpTransport.create(network);
@@ -77,7 +86,9 @@ public abstract class AbstractIC4JMojo extends AbstractMojo {
 					.build();
 			agent.fetchRootKey();
 
-			ManagementService managementService = ManagementService.create(agent, Principal.managementCanister(),effectiveCanister);
+			Principal effective = effectiveCanisterId == null
+					? effectiveCanister : Principal.fromString(effectiveCanisterId);
+			ManagementService managementService = ManagementService.create(agent, Principal.managementCanister(), effective);
 			
 			return managementService;
 		}

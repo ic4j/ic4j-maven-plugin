@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.ic4j.ci</groupId>
+  <artifactId>maven-plugin-consumer</artifactId>
+  <version>0.0.1</version>
+  <packaging>pom</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.ic4j</groupId>
+        <artifactId>ic4j-maven-plugin</artifactId>
+        <version>0.8.5</version>
+        <configuration>
+          <network>http://127.0.0.1:4943/</network>
+          <identity>${project.basedir}/fixture.pem</identity>
+          <effectiveCanisterId>${fixtureCanister}</effectiveCanisterId>
+          <canisters>
+            <canister>
+              <canisterId>${fixtureCanister}</canisterId>
+              <mode>install</mode>
+              <wasmFile>${project.basedir}/fixture.wasm</wasmFile>
+              <argument>("from Maven CI")</argument>
+              <delete>false</delete>
+            </canister>
+          </canisters>
+        </configuration>
+        <executions>
+          <execution>
+            <id>deploy</id>
+            <goals><goal>install</goal></goals>
+          </execution>
+          <execution>
+            <id>remove-code</id>
+            <goals><goal>uninstall</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
